@@ -25,7 +25,10 @@
     				<% for(var i=0; i < tasks.length; i++) { %>
     				<tr>
     					<td>#<%= i+1 %> <strong><%= tasks[i].title %></strong></td>
-    					<td class="actions"><a href="/turn/<%= tasks[i]._id %>" class="<%= tasks[i].status ? '' : 'color-red' %>"><%= tasks[i].status ? 'Finalizada' : 'Não finalizada' %></a></td>
+    					<td class="actions">
+    						<a href="/turn/<%= tasks[i]._id %>" class="<%= tasks[i].status ? '' : 'color-red' %>"><%= tasks[i].status ? 'Finalizada' : 'Não finalizada' %></a>
+    						<a href="/delete/<%= tasks[i]._id %>" class="color-red" >Deletar</a>
+    					</td>
     					<td class="highlight"><%= tasks[i].description %></td>
     				</tr>
     				<% } %>

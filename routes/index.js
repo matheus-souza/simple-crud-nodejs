@@ -38,4 +38,17 @@ router.get('/turn/:id', function(req, res, next) {
 	});
 });
 
+router.get('/delete/:id', function(req, res, next) {
+	var id = req.params.id;
+
+	model.findById(id, function(err, task) {
+		if (err) {
+			throw err;
+		}
+		task.remove(function (err) {
+	        res.redirect('/');
+	    })
+	});
+});
+
 module.exports = router;
