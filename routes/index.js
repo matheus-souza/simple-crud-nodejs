@@ -9,7 +9,19 @@ router.get('/', function(req, res, next) {
 			throw err;
 		}
 
-		res.render('index', {title: 'Express', tasks: 'tasks'});
+		res.render('index', {title: 'Express', tasks: tasks});
+	})
+});
+
+router.post('/add', function(req, res, next) {
+	var body = req.body;
+	body.status = false;
+
+	model.create(body, function(err, task) {
+		if (err) {
+			throw err;
+		}
+		res.redirect('/');
 	})
 });
 
